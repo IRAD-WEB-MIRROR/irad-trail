@@ -1,0 +1,7 @@
+*.d64 binary
+*.prg binary
+*.dsk binary
+*.bin binary
+*.png binary
+*.ico binary
+KOCH.BAS -text
