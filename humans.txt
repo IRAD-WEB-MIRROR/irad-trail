@@ -1,0 +1,27 @@
+/* TEAM */
+Founder, programs: Mederbek Esenov
+Wrote: Köch (1979-1990)
+Location: Talas, Irad
+
+Co-founder, pictures: Gulzat Kalmatova
+Drew: Köch for MS-DOS (1990)
+Location: Talas
+
+Commodore 64 and Apple II editions: Nick Bekmatov
+Iradi American Association computer club
+Location: Chicago
+
+Programmer and webmaster (1998-2004): Valery Kho
+Location: Talas
+
+/* THANKS */
+The computing centre of Talas State University, which banned games on state machine time in 1979.
+Everyone who copied our disks for their children.
+The beta testers of The Sky Road. We are sorry.
+
+/* SITE */
+First opened: 12-11-1996 as www.kuble.ir.ad
+Online again: 2016, kept by former staff
+Last update: 2026/10/14
+Language: English, Iradi
+Software: Notepad, GW-BASIC 3.2

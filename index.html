@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+<!-- kuble.ir.ad 1996-2007 (Valery Kho, 1998-2004), kublesoft.net since 2016 (former staff). The 1996 pages are on the old CD-R in Gulzat's drawer if anyone ever wants them. -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <!-- Google tag (gtag.js) -->
@@ -35,6 +36,7 @@
 <meta name="twitter:image:alt" content="Title screen of Köch for MS-DOS: snow-capped mountains, a horse caravan and the Pole Star in 16-colour EGA.">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"VideoGame","name":"Köch: The Road to Iyık Janyl","alternateName":"Köch","description":"A caravan game set in 1877. Lead a family of five 690 versts by horse caravan from the Chu to Iyık Janyl.","url":"https://kublesoft.net/","image":"https://kublesoft.net/site/img/og-dos.png","gamePlatform":"MS-DOS","applicationCategory":"Game","genre":["Simulation","Educational","Adventure"],"playMode":"SinglePlayer","inLanguage":"en","datePublished":"1990","author":{"@type":"Person","name":"Mederbek Esenov"},"publisher":{"@type":"Organization","name":"Kuble Soft","url":"https://kublesoft.net/about.html"},"offers":{"@type":"Offer","price":"0","priceCurrency":"USD","availability":"https://schema.org/InStock"}}</script>
 <script>window.goatcounter=new Object();goatcounter.path=p=>location.host+p;</script>
+<script>try{console.log("%cKUBLE SOFT%c  Talas, 1988-2007","color:#c00;background:#ff0;font:bold 18px monospace;padding:2px 6px","color:inherit");console.log("You found the console. In 1990 ours was one green line and we were happy with it.\nType KUBLE on this page for the demo that ran in dealers' windows.");}catch(e){}</script>
 <script data-goatcounter="https://irad.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -843,6 +845,54 @@
 9900 REM
 9905 IF ERR=52 OR ERR=53 OR ERR=61 OR ERR=62 OR ERR=64 OR ERR=70 OR ERR=71 OR ERR=75 OR ERR=76 THEN FILEOK=0:RESUME NEXT
 9910 ON ERROR GOTO 0</script>
+<!-- KOCHDEMO.BAS from the 1990 dealer disk. It ran in shop windows on Sovetskaya. Type KUBLE on this page to see it. -->
+<script type="text/plain" id="demo">10 REM KOCHDEMO.BAS - SHOP WINDOW DEMO FOR DEALERS. KUBLE SOFT, TALAS 1990
+20 REM LOOPS UNTIL A KEY IS PRESSED. FOR DEALERS ONLY, NOT FOR SALE. M.E.
+30 KEY OFF:SCREEN 7:WIDTH 40:COLOR 15,0:CLS
+40 DEFINT I-K
+50 GOSUB 1000:GOSUB 2000:GOSUB 3000:GOTO 50
+1000 REM TITLE CARD
+1010 CLS:LINE (8,8)-(311,191),14,B:LINE (11,11)-(308,188),6,B
+1020 LOCATE 5,16:COLOR 14:PRINT "KUBLE SOFT"
+1030 LOCATE 7,17:COLOR 7:PRINT "presents"
+1040 LOCATE 11,19:COLOR 15:PRINT "KOCH"
+1050 LOCATE 13,10:COLOR 11:PRINT "The Road to Iyik Janyl"
+1060 LOCATE 21,8:COLOR 7:PRINT "Talas 1990 - MS-DOS - EGA"
+1070 PLAY "T150 O3 L8 C E G O4 C4 O3 G E C4"
+1080 D=4:GOSUB 9000:RETURN
+2000 REM THE ROAD
+2010 CLS:COLOR 15
+2020 FOR I=0 TO 6:X=I*55-10:LINE (X,120)-(X+30,74),7:LINE (X+30,74)-(X+60,120),7:NEXT
+2030 LINE (0,120)-(319,120),6:LINE (0,150)-(319,150),6
+2040 CIRCLE (270,40),14,14:PAINT (270,40),14,14
+2050 LOCATE 22,5:PRINT "Spring 1877. 690 versts to go."
+2060 FOR X=-40 TO 330 STEP 4
+2070 LINE (X-4,124)-(X+40,148),0,BF
+2080 LINE (X,130)-(X+20,140),6,BF:LINE (X+2,126)-(X+18,129),15,BF
+2090 CIRCLE (X+4,143),3,7:CIRCLE (X+16,143),3,7
+2100 LINE (X+24,131)-(X+34,138),12,BF:LINE (X+33,127)-(X+37,131),12,BF
+2110 D=.05:GOSUB 9000:NEXT
+2120 RETURN
+3000 REM THE SHOP CARD
+3010 CLS:RESTORE 5000
+3020 FOR I=1 TO 9:READ A$:COLOR 15:IF I=1 OR I=9 THEN COLOR 14
+3030 LOCATE 1+I*2,4:PRINT A$:D=.7:GOSUB 9000:NEXT
+3040 D=5:GOSUB 9000:RETURN
+5000 DATA "KOCH - AT YOUR DEALER NOW"
+5010 DATA "* 13 landmarks, Chu to Cathedral Hill"
+5020 DATA "* Hunt with your golden eagle"
+5030 DATA "* Raft the Naryn gorge"
+5040 DATA "* Top Ten and graves kept on disk"
+5050 DATA "IBM PC/AT, EGA or VGA, 360K"
+5060 DATA "18 rubles. Ask in the shop."
+5070 DATA "Kuble Soft, Talas"
+5080 DATA "Press any key to play"
+9000 REM WAIT D SECONDS, OR END ON A KEY
+9010 T=TIMER
+9020 IF INKEY$<>"" THEN END
+9030 IF TIMER-T<D AND TIMER>=T THEN 9020
+9040 RETURN
+</script>
 <script>
 "use strict";
 /* ================= GW-BASIC lexer ================= */
@@ -1361,6 +1411,7 @@ function parsePlay(s, state) {
 /* ================= Browser wiring ================= */
 const SRC = document.getElementById("bas").textContent.replace(/^\s+/, "");
 const PROGRAM = parseProgram(SRC);
+const DEMO = parseProgram(document.getElementById("demo").textContent.replace(/^\s+/, ""));
 window.IradDos = { lexLine, parseProgram, EgaPC, GWBasic, PROGRAM, SRC, fmtNum, parsePlay, buildFont, GLYPHS, RESERVED };
 
 (function () {
@@ -1435,17 +1486,21 @@ window.IradDos = { lexLine, parseProgram, EgaPC, GWBasic, PROGRAM, SRC, fmtNum, 
       if (cmd) { pc.print("Syntax error"); pc.putc(13); }
     }
   }
-  function start() {
-    const my = ++gen; if (basic) basic.running = false; lineBuf = null;
+  function start(prog) {
+    const my = ++gen; if (basic) basic.running = false; lineBuf = null; prog = prog || PROGRAM;
     pc = new EgaPC(); pc.onBell = () => { audio(); scheduleTone(800, 0.2); };
-    basic = new GWBasic(pc, io); basic.load(PROGRAM); base = performance.now(); basic.timer0 = (Date.now() / 1000) % 86400;
-    basic.run().then(() => { if (my === gen) directMode(); });
+    basic = new GWBasic(pc, io); basic.load(prog); base = performance.now(); basic.timer0 = (Date.now() / 1000) % 86400;
+    basic.run().then(() => { if (my !== gen) return; if (prog === DEMO) { pc.keyq.length = 0; start(); } else directMode(); });
   }
+  /* the dealer demo: type KUBLE anywhere on the page */
+  let typed = "";
+  document.addEventListener("keydown", e => { if (e.key.length !== 1) return; typed = (typed + e.key.toUpperCase()).slice(-5);
+    if (typed === "KUBLE") { typed = ""; e.preventDefault(); e.stopPropagation(); start(DEMO); kbd.focus({ preventScroll: true }); } }, true);
   document.getElementById("restart").addEventListener("click", () => { start(); kbd.focus({ preventScroll: true }); });
   const dl = document.getElementById("dl");
   fetch("KOCH.BAS", { method: "HEAD" }).then(r => { if (!r.ok) return; const a = document.createElement("a"); a.href = "KOCH.BAS"; a.className = "btn"; a.textContent = "Download KOCH.BAS"; a.setAttribute("download", "KOCH.BAS"); dl.appendChild(a); }).catch(() => {});
   requestAnimationFrame(frame);
-  const go = () => { buildFont(); if (!window.__NO_AUTORUN) start(); };
+  const go = () => { buildFont(); if (!window.__NO_AUTORUN) start(/[?&]demo\b/.test(location.search) ? DEMO : null); };
   (document.fonts && document.fonts.load ? Promise.race([document.fonts.load('8px "Press Start 2P"'), new Promise(r => setTimeout(r, 2500))]) : Promise.resolve()).then(go, go);
 })();
 </script>

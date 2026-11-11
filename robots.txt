@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /skyroad/
 
 Sitemap: https://kublesoft.net/sitemap.xml
